@@ -1,0 +1,30 @@
+{
+  "name": "hotel-example-webdriverio-en-us",
+  "version": "2020.6.1",
+  "private": true,
+  "description": "Example codes for learning test automation.",
+  "scripts": {
+    "test": "wdio wdio.conf.js",
+    "lint": "eslint \"**/*.js\""
+  },
+  "keywords": [
+    "learn-to-code",
+    "testing",
+    "automation",
+    "test-automation"
+  ],
+  "author": "Takeshi Kishi",
+  "license": "MIT",
+  "devDependencies": {
+    "@wdio/cli": "^6.3.5",
+    "@wdio/local-runner": "^6.3.5",
+    "@wdio/mocha-framework": "^6.3.0",
+    "@wdio/spec-reporter": "^6.3.0",
+    "@wdio/sync": "^6.3.3",
+    "chromedriver": "^84.0.1",
+    "eslint": "^7.5.0",
+    "eslint-plugin-wdio": "^6.0.12",
+    "moment": "^2.27.0",
+    "wdio-chromedriver-service": "^6.0.3"
+  }
+}
