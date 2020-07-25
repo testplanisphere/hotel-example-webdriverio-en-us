@@ -1,4 +1,4 @@
-# hotel-example-webdriverio-ja
+# hotel-example-webdriverio-en-us
 
 
 
