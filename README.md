@@ -1,6 +1,6 @@
 # hotel-example-webdriverio-en-us
 
-
+![webdriverio-en-us](https://github.com/testplanisphere/hotel-example-webdriverio-en-us/workflows/webdriverio-en-us/badge.svg)
 
 This project is example codes for learning test automation.
 
@@ -56,3 +56,7 @@ npm run lint
 ```
 
 ### Changelog
+
+#### v2020.7.0 (2020-07-26)
+
+* First release
