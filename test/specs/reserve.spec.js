@@ -1,4 +1,4 @@
-const moment = require('moment');
+const DateTime = require('luxon').DateTime;
 const ConfirmPage = require('../pageobjects/confirm.page');
 const LoginPage = require('../pageobjects/login.page');
 const MyPage = require('../pageobjects/my.page');
@@ -22,7 +22,7 @@ describe('Reservation', () => {
     browser.switchWindow(/^Reservation.+$/);
     ReservePage.submitButton.waitForClickable();
 
-    const tomorrow = moment().add(1, 'days').format('MM/DD/YYYY');
+    const tomorrow = DateTime.local().plus({ days: 1 }).toFormat('LL/dd/yyyy');
 
     expect(ReservePage.planName).toHaveText('Plan with special offers');
     expect(ReservePage.reserveDate).toHaveValue(tomorrow);
@@ -55,7 +55,7 @@ describe('Reservation', () => {
     browser.switchWindow(/^Reservation.+$/);
     ReservePage.submitButton.waitForClickable();
 
-    const tomorrow = moment().add(1, 'days').format('MM/DD/YYYY');
+    const tomorrow = DateTime.local().plus({ days: 1 }).toFormat('LL/dd/yyyy');
 
     expect(ReservePage.planName).toHaveText('Premium plan');
     expect(ReservePage.reserveDate).toHaveValue(tomorrow);
@@ -102,7 +102,7 @@ describe('Reservation', () => {
     browser.switchWindow(/^Reservation.+$/);
     ReservePage.submitButton.waitForClickable();
 
-    const today = moment().format('MM/DD/YYYY');
+    const today = DateTime.local().toFormat('LL/dd/yyyy');
 
     ReservePage.setReserveDate(today);
     ReservePage.reserveTerm.setValue('0');
@@ -121,7 +121,7 @@ describe('Reservation', () => {
     browser.switchWindow(/^Reservation.+$/);
     ReservePage.submitButton.waitForClickable();
 
-    const after90 = moment().add(91, 'days').format('MM/DD/YYYY');
+    const after90 = DateTime.local().plus({ days: 91 }).toFormat('LL/dd/yyyy');
 
     ReservePage.setReserveDate(after90);
     ReservePage.reserveTerm.setValue('10');
@@ -189,15 +189,15 @@ describe('Reservation', () => {
     browser.switchWindow(/^Reservation.+$/);
     ReservePage.submitButton.waitForClickable();
 
-    const expectedStart = moment().add(1, 'days');
-    const expectedEnd = moment().add(2, 'days');
+    const expectedStart = DateTime.local().plus({ days: 1 });
+    const expectedEnd = DateTime.local().plus({ days: 2 });
     let expectedTotalBill;
-    if (expectedStart.day() === 0 || expectedStart.day() === 6) {
+    if (expectedStart.weekday === 6 || expectedStart.weekday === 7) {
       expectedTotalBill = 'Total $87.50 (included taxes)';
     } else {
       expectedTotalBill = 'Total $70.00 (included taxes)';
     }
-    const expectedTerm = `${expectedStart.format('MMMM D, YYYY')} - ${expectedEnd.format('MMMM D, YYYY')}. 1 night(s)`
+    const expectedTerm = `${expectedStart.toFormat('LLLL d, yyyy')} - ${expectedEnd.toFormat('LLLL d, yyyy')}. 1 night(s)`
 
     ReservePage.username.setValue('the tester');
     ReservePage.contact.selectByVisibleText('I don\'t need.');
@@ -229,17 +229,17 @@ describe('Reservation', () => {
     browser.switchWindow(/^Reservation.+$/);
     ReservePage.submitButton.waitForClickable();
 
-    const expectedStart = moment().add(90, 'days');
-    const expectedEnd = moment().add(92, 'days');
+    const expectedStart = DateTime.local().plus({ days: 90 });
+    const expectedEnd = DateTime.local().plus({ days: 92 });
     let expectedTotalBill;
-    if (expectedStart.day() === 6) {
+    if (expectedStart.weekday === 6) {
       expectedTotalBill = 'Total $1,120.00 (included taxes)';
-    } else if (expectedStart.day() === 0 || expectedStart.day() === 5) {
+    } else if (expectedStart.weekday === 5 || expectedStart.weekday === 7) {
       expectedTotalBill = 'Total $1,020.00 (included taxes)';
     } else {
       expectedTotalBill = 'Total $920.00 (included taxes)';
     }
-    const expectedTerm = `${expectedStart.format('MMMM D, YYYY')} - ${expectedEnd.format('MMMM D, YYYY')}. 2 night(s)`
+    const expectedTerm = `${expectedStart.toFormat('LLLL d, yyyy')} - ${expectedEnd.toFormat('LLLL d, yyyy')}. 2 night(s)`
 
     ReservePage.reserveTerm.setValue('2');
     ReservePage.headCount.setValue('4');
@@ -248,7 +248,7 @@ describe('Reservation', () => {
     ReservePage.setSightseeingPlan(false);
     ReservePage.contact.selectByVisibleText('By email');
     ReservePage.comment.setValue('aaa\n\nbbbbbbb\ncc');
-    ReservePage.reserveDate.setValue(expectedStart.format('MM/DD/YYYY'));
+    ReservePage.reserveDate.setValue(expectedStart.toFormat('LL/dd/yyyy'));
     ReservePage.submit();
 
     expect(ConfirmPage.totalBill).toHaveText(expectedTotalBill);
