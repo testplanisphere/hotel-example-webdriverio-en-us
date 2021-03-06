@@ -1,6 +1,6 @@
 # hotel-example-webdriverio-en-us
 
-![webdriverio-en-us](https://github.com/testplanisphere/hotel-example-webdriverio-en-us/workflows/webdriverio-en-us/badge.svg)
+[![webdriverio-en-us](https://github.com/testplanisphere/hotel-example-webdriverio-en-us/actions/workflows/test.yml/badge.svg)](https://github.com/testplanisphere/hotel-example-webdriverio-en-us/actions/workflows/test.yml)
 
 This project is example codes for learning test automation.
 
@@ -56,6 +56,21 @@ npm run lint
 ```
 
 ### Changelog
+
+#### v2021.2.0 (2021-03-06)
+
+* [#121](https://github.com/testplanisphere/hotel-example-webdriverio-en-us/pull/121) Bump eslint-plugin-wdio from 6.0.12 to 7.0.0
+* [#124](https://github.com/testplanisphere/hotel-example-webdriverio-en-us/pull/124) Update node 14
+* [#125](https://github.com/testplanisphere/hotel-example-webdriverio-en-us/pull/125) Bump wdio from 6.5 to 6.12
+* [#126](https://github.com/testplanisphere/hotel-example-webdriverio-en-us/pull/126) Bump wdio from 6 to 7
+* [#132](https://github.com/testplanisphere/hotel-example-webdriverio-en-us/pull/132) Bump wdio from 7.0.1 to 7.0.2
+* [#133](https://github.com/testplanisphere/hotel-example-webdriverio-en-us/pull/133) Bump wdio from 7.0.2 to 7.0.3
+* [#134](https://github.com/testplanisphere/hotel-example-webdriverio-en-us/pull/134) Bump eslint from 7.19.0 to 7.20.0
+* [#135](https://github.com/testplanisphere/hotel-example-webdriverio-en-us/pull/135) Bump chromedriver from 85.0.1 to 88.0.0
+* [#136](https://github.com/testplanisphere/hotel-example-webdriverio-en-us/pull/136) Bump luxon from 1.25.0 to 1.26.0
+* [#153](https://github.com/testplanisphere/hotel-example-webdriverio-en-us/pull/153) Bump wdio from 7.0.3 to 7.0.8
+* [#154](https://github.com/testplanisphere/hotel-example-webdriverio-en-us/pull/154) Bump eslint from 7.20.0 to 7.21.0
+* [#155](https://github.com/testplanisphere/hotel-example-webdriverio-en-us/pull/155) Bump wdio-chromedriver-service from 6.0.4 to 7.0.0
 
 #### v2020.9.0 (2020-09-30)
 
