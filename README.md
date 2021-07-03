@@ -34,7 +34,7 @@ https://hotel.testplanisphere.dev/en-US/
 
 #### Requirements
 
-* Node.js 12
+* Node.js LTS
 * Google Chrome
 
 #### Install Dependencies
