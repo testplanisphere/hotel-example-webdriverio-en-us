@@ -5,20 +5,20 @@ class TopPage extends Page {
   get signupLink() { return $('=Sign up'); }
   get planLink() { return $('=Reserve'); }
 
-  open() {
-    super.open('/en-US/');
+  async open() {
+    await super.open('/en-US/');
   }
 
-  goToLoginPage() {
-    this.loginLink.click();
+  async goToLoginPage() {
+    await (await this.loginLink).click();
   }
 
-  goToSignupPage() {
-    this.signupLink.click();
+  async goToSignupPage() {
+    await (await this.signupLink).click();
   }
 
-  goToPlansPage() {
-    this.planLink.click();
+  async goToPlansPage() {
+    await (await this.planLink).click();
   }
 }
 
