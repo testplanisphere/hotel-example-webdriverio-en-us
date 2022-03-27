@@ -153,7 +153,7 @@ describe('MyPage', () => {
 
     await expect(await browser.getAlertText()).toBe('If you cancel your membership, all information will be deleted.\nDo you wish to proceed?');
     await browser.acceptAlert();
-    await browser.pause(1000);
+    await browser.pause(1000); // eslint-disable-line wdio/no-pause
     await expect(await browser.getAlertText()).toBe('The process has been completed. Thank you for your service.');
     await browser.acceptAlert();
     await expect(browser).toHaveUrl('index.html', {containing: true});
